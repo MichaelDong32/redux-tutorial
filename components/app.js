@@ -7,6 +7,7 @@ class App extends Component {
   }
 
   render () {
+    console.log(this.props.store)
     return <h1>Welcome to {this.props.name}</h1>
   }
 

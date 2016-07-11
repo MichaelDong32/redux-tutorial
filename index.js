@@ -1,6 +1,6 @@
 import { createStore } from 'redux'
 import React from 'react'
-import { render } from 'react-dom'
+// import { render } from 'react-dom'
 
 const counter = (state = 0, action) => {
     switch (action.type) {
@@ -17,19 +17,17 @@ const counter = (state = 0, action) => {
 
 const store = createStore(counter) // points to the counter fn on line 3
 
+const render = () => {
+    document.body.innerText = store.getState();
+};
 
-const show = () => {
-    render(<Counter value={store.getState()}/>, document.getElementById('root'))
-}
-
-store.subscribe(show)
+store.subscribe(render);
+render();
 
 document.addEventListener('click', () => {
     store.dispatch({ type: 'INCREMENT' })
 })
+// console.log(store.getState());
 
-// console.log(store.getState()) //grabbed the initial state = 0 declared in parameter
-
-// store.dispatch({ type: 'INCREMENT'})
-
-// console.log(store.getState()) // increment by 1
+// store.dispatch({ type: 'INCREMENT' });
+// console.log(store.getState());
