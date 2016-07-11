@@ -51,3 +51,4 @@ render();
 
 // store.dispatch({ type: 'INCREMENT' });
 // console.log(store.getState());
+export default counter

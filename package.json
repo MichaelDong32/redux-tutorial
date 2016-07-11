@@ -6,7 +6,7 @@
   "scripts": {
     "start": "budo . -d --serve bundle.js --live",
     "build": "browserify . -o bundle.js -g uglifyify",
-    "test": "browserify test.js | node | tap-spec",
+    "test": "browserify ./test/index.js | node | tap-spec",
     "dist": "mkdir -p dist && bash -c 'cp *.{js,html,css} dist'",
     "push": "gh-pages -d dist",
     "deploy": "npm run build && npm run dist && npm run push"
@@ -27,6 +27,8 @@
   },
   "homepage": "https://github.com/author/counter",
   "dependencies": {
+    "deep-freeze": "0.0.1",
+    "expect": "^1.20.2",
     "redux": "^3.5.2"
   },
   "devDependencies": {
